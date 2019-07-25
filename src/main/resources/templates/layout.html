@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HCMS V1.0</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../public/css/custom.css" th:href="@{/css/custom.css}">
+</head>
+<body>
+<nav class="navbar navbar-default" th:fragment="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">HCMC MIS</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/patients">Patients</a></li>
+                <li><a href="/oldPatients">Elderly Patients</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="text-center" th:fragment="footer">
+    &copy; Spring Boot, 2019
+    <script src="../public/js/jquery.min.js" th:src="@{/js/jquery.js}"></script>
+    <script src="../public/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+</div>
+</body>
+</html>

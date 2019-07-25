@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="layout::navbar"></div>
+<div class="container">
+    <div class="row" id="student">
+        <div class="col-md-12">
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}" th:text="${err}" >
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-12">
+            <form action="#" th:action="@{/save/patient}" th:object="${patient}" method="post">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="patientNumber"> <span>Patient Number</span></label>
+                        <input type="text" id="patientNumber" class="form-control" th:field="*{patientNumber}"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="gender"><span>Out Patient</span></label>
+                        <select th:field="*{anOutPatient}" id="gender" class="form-control">
+                            <option th:value="1">Yes</option>
+                            <option th:value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="fullNames"><span>Full names</span></label>
+                        <input type="text" id="fullNames" class="form-control" th:field="*{fullNames}"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="email"><span>Email</span></label>
+                        <input type="text" id="email" class="form-control" th:field="*{email}"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="contactPhoneNumber"><span>Contact Phone Number</span></label>
+                        <input type="text" id="contactPhoneNumber" class="form-control" th:field="*{contactPhoneNumber}"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="dateOfBirth"><span>Date of birth</span></label>
+                        <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" th:value="SUBMIT">
+                        <input type="reset" class="btn btn-default" th:value="RESET">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="layout::footer"></div>
+</body>
+</html>

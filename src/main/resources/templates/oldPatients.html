@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::header">
+    <meta charset="UTF-8">
+    <title>HCMC || Elderly Patients</title>
+</head>
+<body>
+<div th:replace="layout::navbar"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pull-left">
+                <h3>List of elderly patients</h3>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered ">
+                    <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Patient Number</td>
+                        <td>Full Names</td>
+                        <td>Email</td>
+                        <td>Contact Phone Number</td>
+                        <td>Date of birth</td>
+                        <td>Out Patient</td>
+                    </tr>
+                    </thead>
+                    <tbody id="oldPatients">
+                    <tr th:each="s:${oldPatients}">
+                        <td>
+                            <span th:text="${s.id}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${s.patientNumber}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${s.fullNames}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${s.email}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${s.contactPhoneNumber}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${#temporals.format(s.dateOfBirth, 'MM-dd-yyyy')}"></span>
+                        </td>
+                        <td>
+                            <span th:if="${s.isAnOutPatient() == false}">No</span>
+                            <span th:if="${s.isAnOutPatient() == true}">Yes</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="layout::footer"></div>
+</body>
+</html>
