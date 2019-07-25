@@ -2,7 +2,6 @@ package hcmc.hcmc.controllers;
 
 import hcmc.hcmc.models.Patient;
 import hcmc.hcmc.services.IPatientQueryService;
-import hcmc.hcmc.services.IPatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
